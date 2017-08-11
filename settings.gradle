@@ -1,0 +1,1 @@
+include ':app', ':canute-core', ':canute-ec', ':canute-compiler', ':canute-annotationsss'
