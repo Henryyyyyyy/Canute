@@ -1,9 +1,7 @@
 package me.henry.canute;
 
 import android.app.Application;
-
 import com.joanzapata.iconify.fonts.FontAwesomeModule;
-
 import me.henry.canutecore.app.Canute;
 
 
@@ -20,4 +18,5 @@ public class MyApplication extends Application{
                 .withIcon(new FontAwesomeModule())
                 .configure();
     }
+
 }

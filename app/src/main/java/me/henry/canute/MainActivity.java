@@ -4,14 +4,16 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.Toast;
 
+import me.henry.canutecore.activity.ProxyActivity;
 import me.henry.canutecore.app.Canute;
+import me.henry.canutecore.delegates.CanuteDelegate;
 
-public class MainActivity extends AppCompatActivity {
-
+public class MainActivity extends ProxyActivity {
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        Toast.makeText(Canute.getApplication(),"haha",Toast.LENGTH_SHORT).show();
+    public CanuteDelegate setRootDelegate() {
+        return new ExampleDelegate();
     }
+    //  Toast.makeText(Canute.getAppContext(),"haha",Toast.LENGTH_SHORT).show();
+
+
 }
