@@ -32,8 +32,11 @@ dependencies {
     //fragmentation
     compile 'me.yokeyword:fragmentation:1.1.1'
     compile 'me.yokeyword:fragmentation-swipeback:1.1.1'
-
     //butterknife
     compile 'com.jakewharton:butterknife:8.8.1'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
+    //banner
+    compile 'com.bigkoo:convenientbanner:2.0.5'
+    //json
+    compile 'com.alibaba:fastjson:1.2.36'
 }
