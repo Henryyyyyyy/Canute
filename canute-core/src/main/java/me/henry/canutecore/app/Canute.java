@@ -24,7 +24,7 @@ public class Canute {
     public static Context getAppContext(){
         return (Context) getConfigurations().get(ConfigType.APPLICATION_CONTEXT.name());
     }
-    private static HashMap<String,Object> getConfigurations(){
+    public static HashMap<String,Object> getConfigurations(){
         return Configurator.getInstance().getCanuteConfigs();
     }
 

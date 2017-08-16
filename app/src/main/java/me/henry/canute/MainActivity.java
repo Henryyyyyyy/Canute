@@ -4,6 +4,7 @@ package me.henry.canute;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.ActionBar;
+import android.util.Log;
 
 
 import me.henry.canutecore.activity.ProxyActivity;
@@ -18,6 +19,7 @@ public class MainActivity extends ProxyActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         ActionBar actionBar=getSupportActionBar();
+
         if (actionBar!=null){
 
             actionBar.hide();
@@ -26,7 +28,7 @@ public class MainActivity extends ProxyActivity {
 
     @Override
     public CanuteDelegate setRootDelegate() {
-        return new LauncherDelegate();
+        return new ExampleDelegate();
     }
     //  Toast.makeText(Canute.getAppContext(),"haha",Toast.LENGTH_SHORT).show();
 
