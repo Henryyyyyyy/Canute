@@ -20,8 +20,7 @@ public class CanutePreference {
      * PreferenceManager.getDefaultSharedPreferences(Context)生成 包名_preferences.xml
      * Context.getSharedPreferences(String name,int mode)生成name.xml
      */
-    private static final SharedPreferences PREFERENCES =
-            PreferenceManager.getDefaultSharedPreferences(Canute.getAppContext());
+    private static final SharedPreferences PREFERENCES = PreferenceManager.getDefaultSharedPreferences(Canute.getAppContext());
     private static final String APP_PREFERENCES_KEY = "profile";
 
     private static SharedPreferences getAppPreference() {
