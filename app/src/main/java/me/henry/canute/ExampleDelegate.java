@@ -10,6 +10,8 @@ import me.henry.canutecore.delegates.CanuteDelegate;
 import me.henry.canutecore.net.RestClient;
 import me.henry.canutecore.net.callback.ISuccess;
 
+import static java.security.AccessController.getContext;
+
 /**
  * Created by zj on 2017/8/14.
  * me.henry.canute
@@ -25,6 +27,7 @@ public class ExampleDelegate extends CanuteDelegate{
     public void onBindView(@Nullable Bundle savedInstanceState, View rootView) {
         RestClient.builder()
                 .url("http://news.baidu.com/")
+                .loader(getContext())
                 .success(new ISuccess() {
                     @Override
                     public void onSuccess(String response) {

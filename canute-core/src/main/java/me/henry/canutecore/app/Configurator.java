@@ -15,7 +15,7 @@ import java.util.HashMap;
  */
 
 public class Configurator {
-    private static final HashMap<String, Object> CANUTE_CONFIGS = new HashMap<>();
+    private static final HashMap<Object, Object> CANUTE_CONFIGS = new HashMap<>();
     private static final ArrayList<IconFontDescriptor> ICONS = new ArrayList<>();
 
     public Configurator() {
@@ -31,7 +31,7 @@ public class Configurator {
         return Holder.INSTANCE;
     }
 
-    final HashMap<String, Object> getCanuteConfigs() {
+    final HashMap<Object, Object> getCanuteConfigs() {
         return CANUTE_CONFIGS;
     }
 

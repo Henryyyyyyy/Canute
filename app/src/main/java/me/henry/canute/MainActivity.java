@@ -30,7 +30,6 @@ public class MainActivity extends ProxyActivity {
     public CanuteDelegate setRootDelegate() {
         return new ExampleDelegate();
     }
-    //  Toast.makeText(Canute.getAppContext(),"haha",Toast.LENGTH_SHORT).show();
 
 
 }
