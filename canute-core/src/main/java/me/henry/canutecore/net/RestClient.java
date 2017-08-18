@@ -11,6 +11,7 @@ import me.henry.canutecore.net.callback.IFailure;
 import me.henry.canutecore.net.callback.IRequest;
 import me.henry.canutecore.net.callback.ISuccess;
 import me.henry.canutecore.net.callback.RequestCallbacks;
+import me.henry.canutecore.net.download.DownloadHandler;
 import me.henry.canutecore.ui.loader.CanuteLoader;
 import me.henry.canutecore.ui.loader.LoaderStyle;
 import okhttp3.MediaType;
@@ -21,6 +22,7 @@ import retrofit2.Callback;
 
 /**
  * Created by Administrator on 2017/8/16.
+ * restclient---利用builder初始化之后---利用请求(通过request()里switch方法)
  */
 
 public class RestClient {
@@ -143,8 +145,8 @@ public class RestClient {
     }
     public final void upload() {request(HttpMethod.UPLOAD);}
     public final void download() {
-//        new DownloadHandler(URL, REQUEST, DOWNLOAD_DIR, EXTENSION, NAME,
-//                SUCCESS, FAILURE, ERROR)
-//                .handleDownload();
+        new DownloadHandler(URL, REQUEST, DOWNLOAD_DIR, EXTENSION, NAME,
+                SUCCESS, FAILURE, ERROR)
+                .handleDownload();
     }
 }
