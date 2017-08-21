@@ -13,6 +13,7 @@ import me.henry.canutecore.delegates.CanuteDelegate;
 
 import me.henry.canuteec.launcher.LauncherDelegate;
 import me.henry.canuteec.launcher.LauncherScrollDelegate;
+import me.henry.canuteec.sign.SignUpDelegate;
 
 public class MainActivity extends ProxyActivity {
     @Override
@@ -28,7 +29,7 @@ public class MainActivity extends ProxyActivity {
 
     @Override
     public CanuteDelegate setRootDelegate() {
-        return new ExampleDelegate();
+        return new SignUpDelegate();
     }
 
 
