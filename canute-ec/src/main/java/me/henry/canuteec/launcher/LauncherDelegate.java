@@ -1,5 +1,6 @@
 package me.henry.canuteec.launcher;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.AppCompatTextView;
@@ -10,8 +11,12 @@ import java.util.Timer;
 
 import butterknife.BindView;
 import butterknife.OnClick;
+import me.henry.canutecore.app.AccountManager;
 import me.henry.canutecore.app.Canute;
+import me.henry.canutecore.app.IUserChecker;
 import me.henry.canutecore.delegates.CanuteDelegate;
+import me.henry.canutecore.ui.launcher.ILauncherListener;
+import me.henry.canutecore.ui.launcher.OnLauncherFinishTag;
 import me.henry.canutecore.ui.launcher.ScrollLauncherTag;
 import me.henry.canutecore.util.CanutePreference;
 import me.henry.canutecore.util.timer.BaseTimerTask;
@@ -29,6 +34,8 @@ public class LauncherDelegate extends CanuteDelegate implements ITimerListener {
     @BindView(R2.id.tv_launcher_timer)
     AppCompatTextView mTvTimer;
     private Timer mTimer;
+
+    private ILauncherListener mILauncherListener = null;
      @OnClick(R2.id.tv_launcher_timer)
     void onClickTimerView(){
         if (mTimer != null) {
@@ -38,6 +45,14 @@ public class LauncherDelegate extends CanuteDelegate implements ITimerListener {
         }
     }
     private int mCount = 5;
+
+    @Override
+    public void onAttach(Activity activity) {
+        super.onAttach(activity);
+        if (activity instanceof ILauncherListener) {
+            mILauncherListener = (ILauncherListener) activity;
+        }
+    }
 
     @Override
     public Object setLayout() {
@@ -61,7 +76,23 @@ public class LauncherDelegate extends CanuteDelegate implements ITimerListener {
         if (!CanutePreference.getAppFlag(ScrollLauncherTag.HAS_FIRST_LAUNCHER_APP.name())) {
             start(new LauncherScrollDelegate(), SINGLETASK);
         } else {
-        //检查用户是否登录了app
+            //检查用户是否登录了APP,
+            //在自己的manager里面检测
+            AccountManager.checkAccount(new IUserChecker() {
+                @Override
+                public void onSignIn() {
+                    if (mILauncherListener != null) {
+                        mILauncherListener.onLauncherFinish(OnLauncherFinishTag.SIGNED);
+                    }
+                }
+
+                @Override
+                public void onNotSignIn() {
+                    if (mILauncherListener != null) {
+                        mILauncherListener.onLauncherFinish(OnLauncherFinishTag.NOT_SIGNED);
+                    }
+                }
+            });
         }
 
     }

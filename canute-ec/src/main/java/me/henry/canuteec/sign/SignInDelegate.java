@@ -29,14 +29,14 @@ public class SignInDelegate extends CanuteDelegate{
     @BindView(R2.id.edit_sign_in_password)
     TextInputEditText mPassword = null;
 
- //   private ISignListener mISignListener = null;
+    private ISignListener mISignListener = null;
 
     @Override
     public void onAttach(Activity activity) {
         super.onAttach(activity);
-//        if (activity instanceof ISignListener) {
-//            mISignListener = (ISignListener) activity;
-//        }
+        if (activity instanceof ISignListener) {
+            mISignListener = (ISignListener) activity;
+        }
     }
 
     @OnClick(R2.id.btn_sign_in)
@@ -49,8 +49,8 @@ public class SignInDelegate extends CanuteDelegate{
                     .success(new ISuccess() {
                         @Override
                         public void onSuccess(String response) {
-//                            CanuteLogger.json("USER_PROFILE", response);
-//                            SignHandler.onSignIn(response, mISignListener);
+                            CanuteLogger.json("USER_PROFILE", response);
+                            SignHandler.onSignIn(response, mISignListener);
                         }
                     })
                     .build()

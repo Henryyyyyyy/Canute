@@ -1,5 +1,6 @@
 package me.henry.canuteec.sign;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TextInputEditText;
@@ -30,6 +31,15 @@ public class SignUpDelegate extends CanuteDelegate{
     TextInputEditText mPassword = null;
     @BindView(R2.id.edit_sign_up_re_password)
     TextInputEditText mRePassword = null;
+    private ISignListener mISignListener = null;
+
+    @Override
+    public void onAttach(Activity activity) {
+        super.onAttach(activity);
+                if (activity instanceof ISignListener) {
+            mISignListener = (ISignListener) activity;
+        }
+    }
 
 
     @OnClick(R2.id.btn_sign_up)
@@ -46,7 +56,7 @@ public class SignUpDelegate extends CanuteDelegate{
                 "  }\n" +
                 "}";
                               CanuteLogger.json("USER_PROFILE", response);
-                            SignHandler.onSignUp(response);
+                            SignHandler.onSignUp(response,mISignListener);
   //      if (checkForm()) {
 //            RestClient.builder()
 //                    .url("http://192.168.56.1:8080/RestDataServer/api/user_profile.php")
