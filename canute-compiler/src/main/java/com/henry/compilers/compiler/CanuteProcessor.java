@@ -64,7 +64,7 @@ public class CanuteProcessor extends AbstractProcessor{
      * @param visitor
      */
     private void scan(RoundEnvironment env, Class<?extends Annotation> annotation, AnnotationValueVisitor visitor){
-        //在代码环境中获得标有注释的元素
+        //在代码环境中获得标有注释的元素，不一定是类，可能是interface
         for (Element typeElement:env.getElementsAnnotatedWith(annotation)) {
             //从元素中获得AnnotationMirrors（AnnotationMirror就是每个注解元素的个体信息集，因为你会在注解的时候赋值）
             final List<?extends AnnotationMirror>annotationMirrors=typeElement.getAnnotationMirrors();
