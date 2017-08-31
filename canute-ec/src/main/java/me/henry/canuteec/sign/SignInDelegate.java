@@ -5,9 +5,12 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TextInputEditText;
+import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.Toast;
+
+import com.joanzapata.iconify.widget.IconTextView;
 
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -15,6 +18,8 @@ import me.henry.canutecore.delegates.CanuteDelegate;
 import me.henry.canutecore.net.RestClient;
 import me.henry.canutecore.net.callback.ISuccess;
 import me.henry.canutecore.util.log.CanuteLogger;
+import me.henry.canutecore.wechat.CanuteWechat;
+import me.henry.canutecore.wechat.callback.IWeChatSignInCallback;
 import me.henry.canuteec.R;
 import me.henry.canuteec.R2;
 
@@ -28,7 +33,8 @@ public class SignInDelegate extends CanuteDelegate{
     TextInputEditText mEmail = null;
     @BindView(R2.id.edit_sign_in_password)
     TextInputEditText mPassword = null;
-
+    @BindView(R2.id.icon_sign_in_wechat)
+    IconTextView mWechat = null;
     private ISignListener mISignListener = null;
 
     @Override
@@ -58,18 +64,7 @@ public class SignInDelegate extends CanuteDelegate{
         }
     }
 
-    @OnClick(R2.id.icon_sign_in_wechat)
-    void onClickWeChat() {
-//        LatteWeChat
-//                .getInstance()
-//                .onSignSuccess(new IWeChatSignInCallback() {
-//                    @Override
-//                    public void onSignInSuccess(String userInfo) {
-//                        Toast.makeText(getContext(), userInfo, Toast.LENGTH_LONG).show();
-//                    }
-//                })
-//                .signIn();
-    }
+
 
     @OnClick(R2.id.tv_link_sign_up)
     void onClickLink() {
@@ -101,7 +96,7 @@ public class SignInDelegate extends CanuteDelegate{
 
     @Override
     public Object setLayout() {
-        return R.layout.delegate_signup;
+        return R.layout.delegate_signin;
     }
 
     @Override

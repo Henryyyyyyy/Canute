@@ -5,9 +5,12 @@ package me.henry.canutecore.app;
  * me.henry.canute.app
  */
 
-public enum ConfigType {
+public enum ConfigKey {
     API_HOST,
     APPLICATION_CONTEXT,
     CONFIG_READY,
-    ICON
+    ICON,
+    WE_CHAT_APP_ID,
+    WE_CHAT_APP_SECRET,
+    ACTIVITY//微信返回到响应的activity上下文
 }

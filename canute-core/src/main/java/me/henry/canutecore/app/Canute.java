@@ -18,15 +18,22 @@ public class Canute {
      * @return
      */
     public static  Configurator init(Context context){
-        getConfigurations().put(ConfigType.APPLICATION_CONTEXT.name(),context.getApplicationContext());
+        Configurator.getInstance()
+                .getCanuteConfigs()
+                .put(ConfigKey.APPLICATION_CONTEXT, context.getApplicationContext());
         return Configurator.getInstance();
     }
     public static Context getAppContext(){
-        return (Context) getConfigurations().get(ConfigType.APPLICATION_CONTEXT.name());
+        return getConfiguration(ConfigKey.APPLICATION_CONTEXT);
     }
     public static HashMap<Object,Object> getConfigurations(){
         return Configurator.getInstance().getCanuteConfigs();
     }
-
+    public static Configurator getConfigurator() {
+        return Configurator.getInstance();
+    }
+    public static <T> T getConfiguration(Object key) {
+        return getConfigurator().getConfiguration(key);
+    }
 }
 

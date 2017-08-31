@@ -22,6 +22,8 @@ public class MyApplication extends Application {
         Canute.init(this)
                 .withApiHost("http://127.0.0.1/")
                 .withIcon(new FontAwesomeModule())
+                .withWeChatAppId("wxa3959a378ce8be08")
+                .withWeChatAppSecret("wxa3959a378ce8be08")
                 .configure();
         DataBaseManager.getInstance().init(this);
         initStetho();

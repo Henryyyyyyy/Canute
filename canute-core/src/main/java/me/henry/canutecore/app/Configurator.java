@@ -1,5 +1,7 @@
 package me.henry.canutecore.app;
 
+import android.app.Activity;
+
 import com.joanzapata.iconify.IconFontDescriptor;
 import com.joanzapata.iconify.Iconify;
 
@@ -19,7 +21,7 @@ public class Configurator {
     private static final ArrayList<IconFontDescriptor> ICONS = new ArrayList<>();
 
     public Configurator() {
-        CANUTE_CONFIGS.put(ConfigType.CONFIG_READY.name(), false);
+        CANUTE_CONFIGS.put(ConfigKey.CONFIG_READY, false);
     }
 
     private static class Holder {
@@ -38,18 +40,23 @@ public class Configurator {
 
 
     private void checkConfiguration() {
-        final boolean isReady = (boolean) CANUTE_CONFIGS.get(ConfigType.CONFIG_READY.name());
+        final boolean isReady = (boolean) CANUTE_CONFIGS.get(ConfigKey.CONFIG_READY);
         if (!isReady) {
             throw new RuntimeException("configuration is not ready");
         }
     }
-    final <T> T getConfiguration(Enum<ConfigType> key) {
+    final <T> T getConfiguration(Object key) {
         checkConfiguration();
-        return (T) CANUTE_CONFIGS.get(key.name());
+        final Object value = CANUTE_CONFIGS.get(key);
+        if (value == null) {
+            throw new NullPointerException(key.toString() + " IS NULL");
+        }
+        //// TODO: 2017/8/30 优化一下，可以直接放value 
+        return (T) CANUTE_CONFIGS.get(key);
     }
 
     public final Configurator withApiHost(String host) {
-        CANUTE_CONFIGS.put(ConfigType.API_HOST.name(), host);
+        CANUTE_CONFIGS.put(ConfigKey.API_HOST, host);
         return this;
     }
 
@@ -57,8 +64,19 @@ public class Configurator {
         ICONS.add(descriptor);
         return this;
     }
+    public final Configurator withWeChatAppId(String appId) {
+        CANUTE_CONFIGS.put(ConfigKey.WE_CHAT_APP_ID, appId);
+        return this;
+    }
 
-
+    public final Configurator withWeChatAppSecret(String appSecret) {
+        CANUTE_CONFIGS.put(ConfigKey.WE_CHAT_APP_SECRET, appSecret);
+        return this;
+    }
+    public final Configurator withActivity(Activity activity) {
+        CANUTE_CONFIGS.put(ConfigKey.ACTIVITY, activity);
+        return this;
+    }
     private void initIcons() {
         if (ICONS.size() > 0) {
             final Iconify.IconifyInitializer initializer = Iconify.with(ICONS.get(0));
@@ -72,7 +90,7 @@ public class Configurator {
      */
     public final void configure() {
         initIcons();
-        CANUTE_CONFIGS.put(ConfigType.CONFIG_READY.name(), true);
+        CANUTE_CONFIGS.put(ConfigKey.CONFIG_READY, true);
     }
 
 

@@ -141,7 +141,17 @@
                 android:text="已经注册了？请登录"
                 android:textSize="16sp"
                 tools:ignore="HardcodedText" />
-
+            <com.joanzapata.iconify.widget.IconTextView
+                android:id="@+id/icon_sign_in_wechat"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_gravity="center_horizontal"
+                android:gravity="center"
+                android:text="{fa-weixin}"
+                android:clickable="true"
+                android:textColor="#04b00f"
+                android:textSize="40sp" />
         </android.support.v7.widget.LinearLayoutCompat>
+
     </android.support.v4.widget.NestedScrollView>
 </android.support.v7.widget.LinearLayoutCompat>
