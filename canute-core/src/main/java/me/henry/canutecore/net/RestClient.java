@@ -11,7 +11,7 @@ import me.henry.canutecore.net.callback.IFailure;
 import me.henry.canutecore.net.callback.IRequest;
 import me.henry.canutecore.net.callback.ISuccess;
 import me.henry.canutecore.net.callback.RequestCallbacks;
-import me.henry.canutecore.net.download.DownloadHandler;
+import me.henry.canutecore.net.download.DownLoadHandler;
 import me.henry.canutecore.ui.loader.CanuteLoader;
 import me.henry.canutecore.ui.loader.LoaderStyle;
 import okhttp3.MediaType;
@@ -145,7 +145,7 @@ public class RestClient {
     }
     public final void upload() {request(HttpMethod.UPLOAD);}
     public final void download() {
-        new DownloadHandler(URL, REQUEST, DOWNLOAD_DIR, EXTENSION, NAME,
+        new DownLoadHandler(URL, REQUEST, DOWNLOAD_DIR, EXTENSION, NAME,
                 SUCCESS, FAILURE, ERROR)
                 .handleDownload();
     }

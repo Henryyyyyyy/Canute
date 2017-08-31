@@ -13,7 +13,7 @@ import me.yokeyword.fragmentation_swipeback.SwipeBackFragment;
 
 /**
  * Created by zj on 2017/8/14.
- * me.henry.canutecore.delegates
+ * me.henry.canutecore.delegateskkk
  */
 
 public abstract class BaseDelegate extends SwipeBackFragment {

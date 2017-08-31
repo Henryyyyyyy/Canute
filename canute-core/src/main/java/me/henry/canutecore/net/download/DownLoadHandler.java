@@ -19,7 +19,7 @@ import retrofit2.Response;
  * me.henry.canutecore.net.download
  */
 
-public class DownloadHandler {
+public class DownLoadHandler {
     private final String URL;
     private static final WeakHashMap<String, Object> PARAMS = RestCreator.getParams();
     private final IRequest REQUEST;
@@ -30,7 +30,7 @@ public class DownloadHandler {
     private final IFailure FAILURE;
     private final IError ERROR;
 
-    public DownloadHandler(String url,
+    public DownLoadHandler(String url,
                            IRequest request,
                            String downDir,
                            String extension,
