@@ -11,6 +11,7 @@ import me.henry.canutecore.app.Canute;
 import me.henry.canutecore.delegates.CanuteDelegate;
 import me.henry.canutecore.ui.launcher.ILauncherListener;
 import me.henry.canutecore.ui.launcher.OnLauncherFinishTag;
+import me.henry.canuteec.main.EcBottomDelegate;
 import me.henry.canuteec.sign.ISignListener;
 import me.henry.canuteec.sign.SignInDelegate;
 import me.henry.canuteec.sign.SignUpDelegate;
@@ -28,7 +29,7 @@ public class MainActivity extends ProxyActivity implements ISignListener,ILaunch
 
     @Override
     public CanuteDelegate setRootDelegate() {
-        return new SignUpDelegate();
+        return new EcBottomDelegate();
     }
 
 
@@ -47,7 +48,7 @@ public class MainActivity extends ProxyActivity implements ISignListener,ILaunch
         switch (tag) {
             case SIGNED:
                Toast.makeText(this, "启动结束，用户登录了", Toast.LENGTH_LONG).show();
-               // getSupportDelegate().startWithPop(new EcBottomDelegate());
+                getSupportDelegate().startWithPop(new EcBottomDelegate());
                 break;
             case NOT_SIGNED:
                 Toast.makeText(this, "启动结束，用户没登录", Toast.LENGTH_LONG).show();
