@@ -13,8 +13,9 @@ import me.henry.canutecore.ui.launcher.ILauncherListener;
 import me.henry.canutecore.ui.launcher.OnLauncherFinishTag;
 import me.henry.canuteec.main.EcBottomDelegate;
 import me.henry.canuteec.sign.ISignListener;
-import me.henry.canuteec.sign.SignInDelegate;
+
 import me.henry.canuteec.sign.SignUpDelegate;
+import qiu.niorgai.StatusBarCompat;
 
 public class MainActivity extends ProxyActivity implements ISignListener,ILauncherListener {
     @Override
@@ -25,6 +26,7 @@ public class MainActivity extends ProxyActivity implements ISignListener,ILaunch
             actionBar.hide();
         }
         Canute.getConfigurator().withActivity(this);
+        StatusBarCompat.translucentStatusBar(this,true);
     }
 
     @Override

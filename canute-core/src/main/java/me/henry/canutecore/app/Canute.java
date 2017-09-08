@@ -1,6 +1,7 @@
 package me.henry.canutecore.app;
 
 import android.content.Context;
+import android.os.Handler;
 
 import java.util.HashMap;
 
@@ -34,6 +35,9 @@ public class Canute {
     }
     public static <T> T getConfiguration(Object key) {
         return getConfigurator().getConfiguration(key);
+    }
+    public static Handler getHandler() {
+        return getConfiguration(ConfigKey.HANDLER);
     }
 }
 

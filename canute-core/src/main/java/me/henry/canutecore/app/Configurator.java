@@ -1,9 +1,12 @@
 package me.henry.canutecore.app;
 
 import android.app.Activity;
+import android.os.Handler;
 
 import com.joanzapata.iconify.IconFontDescriptor;
 import com.joanzapata.iconify.Iconify;
+import com.orhanobut.logger.AndroidLogAdapter;
+import com.orhanobut.logger.Logger;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -19,9 +22,10 @@ import java.util.HashMap;
 public class Configurator {
     private static final HashMap<Object, Object> CANUTE_CONFIGS = new HashMap<>();
     private static final ArrayList<IconFontDescriptor> ICONS = new ArrayList<>();
-
+    private static final Handler HANDLER = new Handler();
     public Configurator() {
         CANUTE_CONFIGS.put(ConfigKey.CONFIG_READY, false);
+        CANUTE_CONFIGS.put(ConfigKey.HANDLER, HANDLER);
     }
 
     private static class Holder {
@@ -89,6 +93,7 @@ public class Configurator {
      * config之后就变成true了
      */
     public final void configure() {
+        Logger.addLogAdapter(new AndroidLogAdapter());
         initIcons();
         CANUTE_CONFIGS.put(ConfigKey.CONFIG_READY, true);
     }

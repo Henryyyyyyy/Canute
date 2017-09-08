@@ -1,13 +1,13 @@
 package me.henry.canute;
 
 import android.app.Application;
-import android.app.TimePickerDialog;
 
 import com.facebook.stetho.Stetho;
 import com.joanzapata.iconify.fonts.FontAwesomeModule;
 
 import me.henry.canutecore.app.Canute;
 import me.henry.canuteec.database.DataBaseManager;
+import me.henry.canuteec.icon.FontEcModule;
 
 
 /**
@@ -20,8 +20,9 @@ public class MyApplication extends Application {
     public void onCreate() {
         super.onCreate();
         Canute.init(this)
-                .withApiHost("http://127.0.0.1/")
+                .withApiHost("http://116.196.95.67/RestServer/api/")
                 .withIcon(new FontAwesomeModule())
+                .withIcon(new FontEcModule())
                 .withWeChatAppId("wxa3959a378ce8be08")
                 .withWeChatAppSecret("wxa3959a378ce8be08")
                 .configure();

@@ -12,5 +12,6 @@ public enum ConfigKey {
     ICON,
     WE_CHAT_APP_ID,
     WE_CHAT_APP_SECRET,
-    ACTIVITY//微信返回到响应的activity上下文
+    ACTIVITY,//微信返回到响应的activity上下文
+    HANDLER
 }
