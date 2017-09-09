@@ -6,4 +6,7 @@ package me.henry.canutecore.delegates;
  */
 
 public abstract class CanuteDelegate extends PermissionCheckerDelegate{
+    public <T extends CanuteDelegate> T getParentDelegate() {
+        return (T) getParentFragment();
+    }
 }

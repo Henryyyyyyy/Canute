@@ -18,6 +18,7 @@ import me.henry.canutecore.ui.recycler.BaseDecoration;
 import me.henry.canutecore.ui.refresh.RefreshHandler;
 import me.henry.canuteec.R;
 import me.henry.canuteec.R2;
+import me.henry.canuteec.main.EcBottomDelegate;
 
 
 /**
@@ -61,9 +62,10 @@ public class IndexDelegate extends BottomItemDelegate{
     }
     private void initRecyclerView(){
         final GridLayoutManager manager = new GridLayoutManager(getContext(), 4);
-        mRecyclerView.addItemDecoration
-                (BaseDecoration.create(ContextCompat.getColor(getContext(), R.color.app_background), 5));
+        mRecyclerView.addItemDecoration(BaseDecoration.create(ContextCompat.getColor(getContext(), R.color.app_background), 5));
         mRecyclerView.setLayoutManager(manager);
-
+        //获取父fragment,当点击的时候，要连同下面的tab一起跳
+        final EcBottomDelegate ecBottomDelegate = getParentDelegate();
+        mRecyclerView.addOnItemTouchListener(IndexItemClickListener.create(ecBottomDelegate));
     }
 }
