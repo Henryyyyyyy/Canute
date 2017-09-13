@@ -1,12 +1,21 @@
 package me.henry.canutecore.activity;
 
+
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.ContentFrameLayout;
+import android.util.Log;
+import android.view.animation.TranslateAnimation;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import me.henry.canutecore.R;
 import me.henry.canutecore.delegates.CanuteDelegate;
 import me.yokeyword.fragmentation.SupportActivity;
+
+
 
 /**
  * Created by zj on 2017/8/14.
@@ -20,6 +29,10 @@ public  abstract CanuteDelegate setRootDelegate();
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         initContainer(savedInstanceState);
+
+
+
+
     }
     private void initContainer(@Nullable Bundle savedInstanceState){
         final ContentFrameLayout container=new ContentFrameLayout(this);

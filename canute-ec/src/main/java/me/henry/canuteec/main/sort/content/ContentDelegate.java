@@ -55,8 +55,7 @@ public class ContentDelegate extends CanuteDelegate {
                     @Override
                     public void onSuccess(String response) {
                         mData = new SectionDataConverter().convert(response);
-                        final SectionAdapter sectionAdapter =
-                                new SectionAdapter(R.layout.item_section_content,
+                        final SectionAdapter sectionAdapter = new SectionAdapter(R.layout.item_section_content,
                                         R.layout.item_section_header, mData);
                         mRecyclerView.setAdapter(sectionAdapter);
                     }

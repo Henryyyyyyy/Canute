@@ -11,9 +11,6 @@ import me.henry.canutecore.ui.recycler.ItemType;
 import me.henry.canutecore.ui.recycler.MultipleFields;
 import me.henry.canutecore.ui.recycler.MultipleItemEntity;
 
-/**
- * Created by 傅令杰
- */
 
 public final class IndexDataConverter extends DataConverter {
 

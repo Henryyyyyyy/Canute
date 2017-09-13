@@ -7,9 +7,6 @@ import com.alibaba.fastjson.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by 傅令杰
- */
 
 public class SectionDataConverter {
 

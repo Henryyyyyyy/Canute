@@ -15,12 +15,17 @@ import static android.icu.lang.UCharacter.GraphemeClusterBreak.T;
 
 public class MultipleItemEntity implements MultiItemEntity{
    //recycler可能会有很多数据，防止内存溢出
+    /**
+     * 软引用可以和一个引用队列（ReferenceQueue）联合使用，如果软引用
+     * 所引用的对象被垃圾回收器回收，Java虚拟机就会把这个软引用加入到与之关联的引用队列中。
+     */
     private final ReferenceQueue<LinkedHashMap<Object,Object>> ITEM_QUEUE=new ReferenceQueue<>();
     private final LinkedHashMap<Object,Object> MULTIPLE_FIELDS=new LinkedHashMap<>();
-    private final SoftReference<LinkedHashMap<Object,Object>> FIELDS_REFERENCES=
-            new SoftReference<LinkedHashMap<Object, Object>>(MULTIPLE_FIELDS,ITEM_QUEUE);
+    private final SoftReference<LinkedHashMap<Object,Object>> FIELDS_REFERENCES= new SoftReference<LinkedHashMap<Object, Object>>(MULTIPLE_FIELDS,ITEM_QUEUE);
+
     MultipleItemEntity(LinkedHashMap<Object, Object> fields) {
         FIELDS_REFERENCES.get().putAll(fields);
+
     }
     public static MultipleEntityBuilder builder(){
         return new MultipleEntityBuilder();
