@@ -6,6 +6,7 @@ import com.facebook.stetho.Stetho;
 import com.joanzapata.iconify.fonts.FontAwesomeModule;
 
 import me.henry.canutecore.app.Canute;
+import me.henry.canutecore.delegates.web.event.TestEvent;
 import me.henry.canuteec.database.DataBaseManager;
 import me.henry.canuteec.icon.FontEcModule;
 
@@ -25,6 +26,8 @@ public class MyApplication extends Application {
                 .withIcon(new FontEcModule())
                 .withWeChatAppId("wxa3959a378ce8be08")
                 .withWeChatAppSecret("wxa3959a378ce8be08")
+                .withJavascriptInterface("canute")
+                .withWebEvent("test", new TestEvent())
                 .configure();
         DataBaseManager.getInstance().init(this);
         initStetho();

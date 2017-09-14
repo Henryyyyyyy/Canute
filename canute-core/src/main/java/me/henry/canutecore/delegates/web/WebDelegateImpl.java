@@ -18,13 +18,16 @@ import me.henry.canutecore.delegates.web.route.Router;
  */
 
 public class WebDelegateImpl extends WebDelegate implements  IWebViewInitializer{
-
+    private IPageLoadListener mIPageLoadListener = null;
     public static WebDelegateImpl create(String url) {
         final Bundle args = new Bundle();
         args.putString(RouteKeys.URL.name(), url);
         final WebDelegateImpl delegate = new WebDelegateImpl();
         delegate.setArguments(args);
         return delegate;
+    }
+    public void setPageLoadListener(IPageLoadListener listener) {
+        this.mIPageLoadListener = listener;
     }
     @Override
     public IWebViewInitializer setInitializer() {
@@ -52,6 +55,7 @@ if (getUrl()!=null){
     @Override
     public WebViewClient initWebViewClient() {
         final  WebViewClientImpl client=new WebViewClientImpl(this);
+        client.setPageLoadListener(mIPageLoadListener);
         return client;
     }
 

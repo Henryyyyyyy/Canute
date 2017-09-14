@@ -8,6 +8,8 @@ import android.webkit.WebView;
 import java.lang.ref.ReferenceQueue;
 import java.lang.ref.WeakReference;
 
+import me.henry.canutecore.app.Canute;
+import me.henry.canutecore.app.ConfigKey;
 import me.henry.canutecore.delegates.CanuteDelegate;
 import me.henry.canutecore.delegates.web.route.RouteKeys;
 
@@ -21,7 +23,7 @@ public abstract class WebDelegate extends CanuteDelegate{
     private final ReferenceQueue<WebView> WEB_VIEW_QUEUE=new ReferenceQueue<>();
     private String mUrl=null;
     private boolean mIsWebViewAvaible=false;
-
+    private CanuteDelegate mTopDelegate = null;
     public WebDelegate() {
     }
     public abstract IWebViewInitializer setInitializer();
@@ -49,12 +51,22 @@ initWebView();
                 mWebView=initializer.initWebView(mWebView);
                 mWebView.setWebViewClient(initializer.initWebViewClient());
                 mWebView.setWebChromeClient(initializer.initWebChromeClient());
-                mWebView.addJavascriptInterface(CanuteWebInterface.create(this),"canute");
+                final String name = Canute.getConfiguration(ConfigKey.JAVASCRIPT_INTERFACE);
+                mWebView.addJavascriptInterface(CanuteWebInterface.create(this), name);
                 mIsWebViewAvaible=true;
             }else {
                 throw new NullPointerException("initializer is null");
             }
         }
+    }
+    public void setTopDelegate(CanuteDelegate delegate) {
+        mTopDelegate = delegate;
+    }
+    public CanuteDelegate getTopDelegate() {
+        if (mTopDelegate == null) {
+            mTopDelegate = this;
+        }
+        return mTopDelegate;
     }
     public WebView getWebView(){
         if (mWebView==null){

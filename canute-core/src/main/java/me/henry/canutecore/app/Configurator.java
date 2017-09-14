@@ -2,6 +2,7 @@ package me.henry.canutecore.app;
 
 import android.app.Activity;
 import android.os.Handler;
+import android.support.annotation.NonNull;
 
 import com.joanzapata.iconify.IconFontDescriptor;
 import com.joanzapata.iconify.Iconify;
@@ -10,6 +11,9 @@ import com.orhanobut.logger.Logger;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+
+import me.henry.canutecore.delegates.web.event.Event;
+import me.henry.canutecore.delegates.web.event.EventManager;
 
 /**
  * Created by zj on 2017/8/9.
@@ -77,8 +81,19 @@ public class Configurator {
         CANUTE_CONFIGS.put(ConfigKey.WE_CHAT_APP_SECRET, appSecret);
         return this;
     }
+
     public final Configurator withActivity(Activity activity) {
         CANUTE_CONFIGS.put(ConfigKey.ACTIVITY, activity);
+        return this;
+    }
+    public Configurator withJavascriptInterface(@NonNull String name) {
+        CANUTE_CONFIGS.put(ConfigKey.JAVASCRIPT_INTERFACE, name);
+        return this;
+    }
+
+    public Configurator withWebEvent(@NonNull String name, @NonNull Event event) {
+        final EventManager manager = EventManager.getInstance();
+        manager.addEvent(name, event);
         return this;
     }
     private void initIcons() {

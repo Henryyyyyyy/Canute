@@ -34,15 +34,11 @@ public class Router {
             callPhone(delegate.getContext(), url);
             return true;
         }
-
-        final CanuteDelegate parentDelegate = delegate.getParentDelegate();
+        final CanuteDelegate topDelegate = delegate.getTopDelegate();
 
         final WebDelegateImpl webDelegate = WebDelegateImpl.create(url);
-        if (parentDelegate==null){
-            delegate.start(webDelegate);
-        }else {
-            parentDelegate.start(webDelegate);
-        }
+        topDelegate.getSupportDelegate().start(webDelegate);
+
 
         return true;
     }
