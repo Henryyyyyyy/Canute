@@ -8,6 +8,7 @@ import me.henry.canutecore.delegates.bottom.BasebottomDelegate;
 import me.henry.canutecore.delegates.bottom.BottomItemDelegate;
 import me.henry.canutecore.delegates.bottom.BottomTabBean;
 import me.henry.canutecore.delegates.bottom.ItemBuilder;
+import me.henry.canuteec.main.cart.ShopCartDelegate;
 import me.henry.canuteec.main.discover.DiscoverDelegate;
 import me.henry.canuteec.main.index.IndexDelegate;
 import me.henry.canuteec.main.sort.SortDelegate;
@@ -23,7 +24,7 @@ public class EcBottomDelegate extends BasebottomDelegate{
         items.put(new BottomTabBean("{fa-home}", "主页"), new IndexDelegate());
         items.put(new BottomTabBean("{fa-sort}", "分类"), new SortDelegate());
         items.put(new BottomTabBean("{fa-compass}", "发现"), new DiscoverDelegate());
-        items.put(new BottomTabBean("{fa-shopping-cart}", "购物车"), new IndexDelegate());
+        items.put(new BottomTabBean("{fa-shopping-cart}", "购物车"), new ShopCartDelegate());
         items.put(new BottomTabBean("{fa-user}", "我的"), new IndexDelegate());
         return builder.addItems(items).build();
     }
