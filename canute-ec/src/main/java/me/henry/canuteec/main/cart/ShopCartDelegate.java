@@ -33,7 +33,7 @@ import me.henry.canuteec.R2;
 public class ShopCartDelegate extends BottomItemDelegate implements ISuccess, ICartItemListener {
 
     private ShopCartAdapter mAdapter = null;
-    //购物车数量标记
+    //购物车数量标记,就是打了勾的数量
     private int mCurrentCount = 0;
     private int mTotalCount = 0;
     private double mTotalPrice = 0.00;
@@ -61,6 +61,7 @@ public class ShopCartDelegate extends BottomItemDelegate implements ISuccess, IC
             mIconSelectAll.setTextColor(Color.GRAY);
             mIconSelectAll.setTag(0);
             mAdapter.setIsSelectedAll(false);
+            //henryyyyyyy notifydatachange消耗内存比较大
             mAdapter.notifyItemRangeChanged(0, mAdapter.getItemCount());
         }
     }
@@ -91,6 +92,7 @@ public class ShopCartDelegate extends BottomItemDelegate implements ISuccess, IC
                 mAdapter.notifyItemRangeChanged(removePosition, mAdapter.getItemCount());
             }
         }
+        //计算购物车总计
         checkItemCount();
     }
 

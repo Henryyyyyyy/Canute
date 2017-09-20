@@ -1,8 +1,6 @@
 package me.henry.canuteec.main.cart;
 
-/**
- * Created by 傅令杰
- */
+
 
 class ShopCartItemType {
 
