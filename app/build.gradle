@@ -4,7 +4,7 @@ android {
     compileSdkVersion 25
     buildToolsVersion "25.0.2"
     defaultConfig {
-        applicationId "me.henry.canute"
+        applicationId "com.weicontrol.iface"
         minSdkVersion 19
         targetSdkVersion 25
         versionCode 1
@@ -17,6 +17,11 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+//        signingConfigs {
+//        debug {
+//            storeFile file('D:\\work\\ReleaseKey2DebugKey')
+//        }
+//    }
 }
 
 dependencies {
