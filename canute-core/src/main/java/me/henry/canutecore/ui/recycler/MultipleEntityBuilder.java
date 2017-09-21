@@ -3,7 +3,6 @@ package me.henry.canutecore.ui.recycler;
 import java.util.LinkedHashMap;
 
 
-
 public class MultipleEntityBuilder {
 
     private static final LinkedHashMap<Object, Object> FIELDS = new LinkedHashMap<>();

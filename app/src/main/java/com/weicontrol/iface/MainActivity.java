@@ -1,4 +1,4 @@
-package me.henry.canute;
+package com.weicontrol.iface;
 
 
 import android.os.Bundle;
@@ -13,7 +13,6 @@ import me.henry.canutecore.ui.launcher.ILauncherListener;
 import me.henry.canutecore.ui.launcher.OnLauncherFinishTag;
 import me.henry.canuteec.main.EcBottomDelegate;
 import me.henry.canuteec.sign.ISignListener;
-
 import me.henry.canuteec.sign.SignUpDelegate;
 import qiu.niorgai.StatusBarCompat;
 
@@ -31,7 +30,7 @@ public class MainActivity extends ProxyActivity implements ISignListener,ILaunch
 
     @Override
     public CanuteDelegate setRootDelegate() {
-        return new EcBottomDelegate();
+        return new SignUpDelegate();
     }
 
 

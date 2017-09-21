@@ -7,7 +7,6 @@ import android.support.v4.content.ContextCompat;
 import android.webkit.URLUtil;
 import android.webkit.WebView;
 
-import me.henry.canutecore.app.Canute;
 import me.henry.canutecore.delegates.CanuteDelegate;
 import me.henry.canutecore.delegates.web.WebDelegate;
 import me.henry.canutecore.delegates.web.WebDelegateImpl;

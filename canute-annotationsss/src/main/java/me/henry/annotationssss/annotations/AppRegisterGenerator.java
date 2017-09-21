@@ -1,4 +1,4 @@
-package com.henry.annotationssss.annotations;
+package me.henry.annotationssss.annotations;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

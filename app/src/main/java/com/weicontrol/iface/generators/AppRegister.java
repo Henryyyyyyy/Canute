@@ -1,8 +1,7 @@
-package me.henry.canute.generators;
+package com.weicontrol.iface.generators;
 
 
-import com.henry.annotationssss.annotations.AppRegisterGenerator;
-
+import me.henry.annotationssss.annotations.AppRegisterGenerator;
 import me.henry.canutecore.wechat.template.AppRigisterTemplate;
 
 /**
@@ -10,7 +9,7 @@ import me.henry.canutecore.wechat.template.AppRigisterTemplate;
  */
 @SuppressWarnings("unused")
 @AppRegisterGenerator(
-        packageName = "me.henry.canute",
+        packageName = "com.weicontrol.iface",
         registerTemplate = AppRigisterTemplate.class
 )
 public interface AppRegister {

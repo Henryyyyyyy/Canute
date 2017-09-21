@@ -1,4 +1,4 @@
-package com.henry.compilers.compiler;
+package me.henry.compilers.compiler;
 
 import com.squareup.javapoet.JavaFile;
 import com.squareup.javapoet.TypeName;

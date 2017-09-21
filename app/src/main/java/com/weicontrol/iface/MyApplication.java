@@ -1,14 +1,9 @@
-package me.henry.canute;
+package com.weicontrol.iface;
 
 import android.app.Application;
 
 import com.facebook.stetho.Stetho;
 import com.joanzapata.iconify.fonts.FontAwesomeModule;
-
-import java.lang.annotation.ElementType;
-import java.lang.annotation.Retention;
-import java.lang.annotation.RetentionPolicy;
-import java.lang.annotation.Target;
 
 import me.henry.canutecore.app.Canute;
 import me.henry.canutecore.delegates.web.event.TestEvent;
@@ -36,7 +31,7 @@ public class MyApplication extends Application {
                 .withApiHost("http://116.196.95.67/RestServer/api/")
                 .withIcon(new FontAwesomeModule())
                 .withIcon(new FontEcModule())
-                .withWeChatAppId("wxa3959a378ce8be08")
+                .withWeChatAppId("wxfa48d65f290ff3b8")//iface
                 .withWeChatAppSecret("wxa3959a378ce8be08")
                 .withJavascriptInterface("canute")
                 .withWebEvent("test", new TestEvent())

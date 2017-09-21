@@ -1,9 +1,6 @@
-package com.henry.compilers.compiler;
+package me.henry.compilers.compiler;
 
 import com.google.auto.service.AutoService;
-import com.henry.annotationssss.annotations.AppRegisterGenerator;
-import com.henry.annotationssss.annotations.EntryGenerator;
-import com.henry.annotationssss.annotations.PayEntryGenerator;
 
 import java.lang.annotation.Annotation;
 import java.util.LinkedHashSet;
@@ -20,6 +17,10 @@ import javax.lang.model.element.AnnotationValueVisitor;
 import javax.lang.model.element.Element;
 import javax.lang.model.element.ExecutableElement;
 import javax.lang.model.element.TypeElement;
+
+import me.henry.annotationssss.annotations.AppRegisterGenerator;
+import me.henry.annotationssss.annotations.EntryGenerator;
+import me.henry.annotationssss.annotations.PayEntryGenerator;
 
 /**
  * Created by Administrator on 2017/8/22.

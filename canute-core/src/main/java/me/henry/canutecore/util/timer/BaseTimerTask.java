@@ -1,6 +1,5 @@
 package me.henry.canutecore.util.timer;
 
-import java.util.Timer;
 import java.util.TimerTask;
 
 /**

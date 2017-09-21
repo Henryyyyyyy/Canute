@@ -5,10 +5,8 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TextInputEditText;
-import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
-import android.widget.Toast;
 
 import com.joanzapata.iconify.widget.IconTextView;
 
@@ -18,8 +16,6 @@ import me.henry.canutecore.delegates.CanuteDelegate;
 import me.henry.canutecore.net.RestClient;
 import me.henry.canutecore.net.callback.ISuccess;
 import me.henry.canutecore.util.log.CanuteLogger;
-import me.henry.canutecore.wechat.CanuteWechat;
-import me.henry.canutecore.wechat.callback.IWeChatSignInCallback;
 import me.henry.canuteec.R;
 import me.henry.canuteec.R2;
 

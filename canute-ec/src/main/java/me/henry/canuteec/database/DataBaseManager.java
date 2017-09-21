@@ -4,8 +4,6 @@ import android.content.Context;
 
 import org.greenrobot.greendao.database.Database;
 
-import java.util.zip.ZipEntry;
-
 /**
  * Created by zj on 2017/8/21.
  * me.henry.canuteec.database

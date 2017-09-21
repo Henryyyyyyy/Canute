@@ -1,8 +1,7 @@
-package me.henry.canute.generators;
+package com.weicontrol.iface.generators;
 
 
-import com.henry.annotationssss.annotations.PayEntryGenerator;
-
+import me.henry.annotationssss.annotations.PayEntryGenerator;
 import me.henry.canutecore.wechat.template.WXPayEntryTemplate;
 
 /**
@@ -10,7 +9,7 @@ import me.henry.canutecore.wechat.template.WXPayEntryTemplate;
  */
 @SuppressWarnings("unused")
 @PayEntryGenerator(
-        packageName = "me.henry.canute",
+        packageName = "com.weicontrol.iface",
         payEntryTemplate = WXPayEntryTemplate.class
 )
 //这里其实写什么都行，主要用来生成build下面的文件，

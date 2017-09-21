@@ -1,4 +1,4 @@
-package com.henry.compilers.compiler;
+package me.henry.compilers.compiler;
 
 import com.squareup.javapoet.JavaFile;
 import com.squareup.javapoet.TypeName;
@@ -13,14 +13,14 @@ import javax.lang.model.util.SimpleAnnotationValueVisitor7;
 
 /**
  * Created by zj on 2017/8/29.
- * com.henry.compilers.compiler
+ * me.henry.compilers.compiler
  */
 
-public class PayEntryVisitor extends SimpleAnnotationValueVisitor7<Void,Void>{
+public class AppRegisterVisitor extends SimpleAnnotationValueVisitor7<Void, Void> {
     private final Filer FILER;
     private String mPackageName = null;
 
-    PayEntryVisitor(Filer FILER) {
+    AppRegisterVisitor(Filer FILER) {
         this.FILER = FILER;
     }
 
@@ -38,14 +38,14 @@ public class PayEntryVisitor extends SimpleAnnotationValueVisitor7<Void,Void>{
 
     private void generateJavaCode(TypeMirror typeMirror) {
         final TypeSpec targetActivity =
-                TypeSpec.classBuilder("WXPayEntryActivity")
+                TypeSpec.classBuilder("AppRegister")
                         .addModifiers(Modifier.PUBLIC)
                         .addModifiers(Modifier.FINAL)
                         .superclass(TypeName.get(typeMirror))
                         .build();
 
         final JavaFile javaFile = JavaFile.builder(mPackageName + ".wxapi", targetActivity)
-                .addFileComment("wechat pay entry file")
+                .addFileComment("wechat broadcastreceiver")
                 .build();
         try {
             javaFile.writeTo(FILER);

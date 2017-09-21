@@ -9,6 +9,8 @@ import android.util.Patterns;
 import android.view.View;
 import android.widget.Toast;
 
+import com.orhanobut.logger.Logger;
+
 import butterknife.BindView;
 import butterknife.OnClick;
 import me.henry.canutecore.delegates.CanuteDelegate;
@@ -136,7 +138,9 @@ public class SignUpDelegate extends CanuteDelegate{
                 .onSignSuccess(new IWeChatSignInCallback() {
                     @Override
                     public void onSignInSuccess(String userInfo) {
-                        Toast.makeText(getContext(), userInfo, Toast.LENGTH_LONG).show();
+//                        Toast.makeText(getContext(), userInfo, Toast.LENGTH_LONG).show();
+                        CanuteLogger.e("fuck",userInfo);
+                        Log.e("fuckme","userInfo ="+userInfo);
                     }
                 })
                 .signIn();

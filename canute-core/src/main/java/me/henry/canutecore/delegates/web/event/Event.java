@@ -3,7 +3,6 @@ package me.henry.canutecore.delegates.web.event;
 import android.content.Context;
 import android.webkit.WebView;
 
-import me.henry.canutecore.app.Canute;
 import me.henry.canutecore.delegates.CanuteDelegate;
 import me.henry.canutecore.delegates.web.WebDelegate;
 

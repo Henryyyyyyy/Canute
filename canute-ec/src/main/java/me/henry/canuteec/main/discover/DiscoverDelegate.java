@@ -4,7 +4,6 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.View;
 
-import me.henry.canutecore.delegates.CanuteDelegate;
 import me.henry.canutecore.delegates.bottom.BottomItemDelegate;
 import me.henry.canutecore.delegates.web.WebDelegateImpl;
 import me.henry.canuteec.R;

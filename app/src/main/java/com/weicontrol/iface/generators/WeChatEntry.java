@@ -1,8 +1,7 @@
-package me.henry.canute.generators;
+package com.weicontrol.iface.generators;
 
 
-import com.henry.annotationssss.annotations.EntryGenerator;
-
+import me.henry.annotationssss.annotations.EntryGenerator;
 import me.henry.canutecore.wechat.template.WXEntryTemplate;
 
 /**
@@ -11,7 +10,7 @@ import me.henry.canutecore.wechat.template.WXEntryTemplate;
 
 @SuppressWarnings("unused")
 @EntryGenerator(
-        packageName = "me.henry.canute",
+        packageName = "com.weicontrol.iface",
         entryTemplate = WXEntryTemplate.class
 )
 public interface WeChatEntry {

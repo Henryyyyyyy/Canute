@@ -12,7 +12,6 @@ import me.henry.canutecore.ui.recycler.MultipleFields;
 import me.henry.canutecore.ui.recycler.MultipleItemEntity;
 
 
-
 public final class VerticalListDataConverter extends DataConverter {
 
     @Override

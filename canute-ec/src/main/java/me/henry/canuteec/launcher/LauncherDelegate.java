@@ -12,7 +12,6 @@ import java.util.Timer;
 import butterknife.BindView;
 import butterknife.OnClick;
 import me.henry.canutecore.app.AccountManager;
-import me.henry.canutecore.app.Canute;
 import me.henry.canutecore.app.IUserChecker;
 import me.henry.canutecore.delegates.CanuteDelegate;
 import me.henry.canutecore.ui.launcher.ILauncherListener;

@@ -1,7 +1,5 @@
 package me.henry.canutecore.ui.loader;
 
-import com.wang.avi.indicators.SemiCircleSpinIndicator;
-
 /**
  * Created by zj on 2017/8/17.
  * me.henry.canutecore.ui.loader

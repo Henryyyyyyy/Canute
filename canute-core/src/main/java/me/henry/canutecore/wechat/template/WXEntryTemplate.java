@@ -1,6 +1,5 @@
 package me.henry.canutecore.wechat.template;
 
-import me.henry.canutecore.ui.loader.CanuteLoader;
 import me.henry.canutecore.util.log.CanuteLogger;
 import me.henry.canutecore.wechat.BaseWXEntryActivity;
 import me.henry.canutecore.wechat.CanuteWechat;
@@ -21,6 +20,7 @@ public class WXEntryTemplate extends BaseWXEntryActivity{
 
     @Override
     protected void onSignInSuccess(String userInfo) {
+        CanuteLogger.e("wxtemplate","onSignInSuccess.userinfo="+userInfo);
         CanuteWechat.getInstance().getSignInCallback().onSignInSuccess(userInfo);
     }
 }

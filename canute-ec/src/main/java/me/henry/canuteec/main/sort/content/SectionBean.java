@@ -3,7 +3,6 @@ package me.henry.canuteec.main.sort.content;
 import com.chad.library.adapter.base.entity.SectionEntity;
 
 
-
 public class SectionBean extends SectionEntity<SectionContentItemEntity> {
 
     private boolean mIsMore = false;

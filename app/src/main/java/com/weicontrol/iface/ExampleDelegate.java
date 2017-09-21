@@ -1,4 +1,4 @@
-package me.henry.canute;
+package com.weicontrol.iface;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -10,14 +10,13 @@ import me.henry.canutecore.delegates.CanuteDelegate;
 import me.henry.canutecore.net.RestClient;
 import me.henry.canutecore.net.callback.ISuccess;
 
-import static java.security.AccessController.getContext;
 
 /**
  * Created by zj on 2017/8/14.
  * me.henry.canute
  */
 
-public class ExampleDelegate extends CanuteDelegate{
+public class ExampleDelegate extends CanuteDelegate {
     @Override
     public Object setLayout() {
         return R.layout.delegate_example;

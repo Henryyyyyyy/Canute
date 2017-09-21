@@ -18,7 +18,6 @@ import me.yokeyword.fragmentation.ExtraTransaction;
 import me.yokeyword.fragmentation.ISupportFragment;
 import me.yokeyword.fragmentation.SupportFragmentDelegate;
 import me.yokeyword.fragmentation.anim.FragmentAnimator;
-import me.yokeyword.fragmentation_swipeback.SwipeBackFragment;
 
 /**
  * Created by zj on 2017/8/14.

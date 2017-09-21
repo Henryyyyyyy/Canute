@@ -28,12 +28,14 @@ import me.henry.canutecore.ui.recycler.MultipleItemEntity;
 import me.henry.canutecore.util.log.CanuteLogger;
 import me.henry.canuteec.R;
 import me.henry.canuteec.R2;
+import me.henry.canuteec.pay.FastPay;
+import me.henry.canuteec.pay.IAlPayResultListener;
 
 
-public class ShopCartDelegate extends BottomItemDelegate implements ISuccess, ICartItemListener {
+public class ShopCartDelegate extends BottomItemDelegate implements ISuccess, ICartItemListener, IAlPayResultListener {
 
     private ShopCartAdapter mAdapter = null;
-    //购物车数量标记,就是打了勾的数量
+    //购物车数量标记
     private int mCurrentCount = 0;
     private int mTotalCount = 0;
     private double mTotalPrice = 0.00;
@@ -61,7 +63,6 @@ public class ShopCartDelegate extends BottomItemDelegate implements ISuccess, IC
             mIconSelectAll.setTextColor(Color.GRAY);
             mIconSelectAll.setTag(0);
             mAdapter.setIsSelectedAll(false);
-            //henryyyyyyy notifydatachange消耗内存比较大
             mAdapter.notifyItemRangeChanged(0, mAdapter.getItemCount());
         }
     }
@@ -77,6 +78,7 @@ public class ShopCartDelegate extends BottomItemDelegate implements ISuccess, IC
                 deleteEntities.add(entity);
             }
         }
+        // henryyyyyy???这是什么鬼，mtotalcount不会赋值？
         for (MultipleItemEntity entity : deleteEntities) {
             int removePosition;
             final int entityPosition = entity.getField(ShopCartItemFields.POSITION);
@@ -92,7 +94,6 @@ public class ShopCartDelegate extends BottomItemDelegate implements ISuccess, IC
                 mAdapter.notifyItemRangeChanged(removePosition, mAdapter.getItemCount());
             }
         }
-        //计算购物车总计
         checkItemCount();
     }
 
@@ -105,14 +106,18 @@ public class ShopCartDelegate extends BottomItemDelegate implements ISuccess, IC
 
     @OnClick(R2.id.tv_shop_cart_pay)
     void onClickPay() {
-        createOrder();
+       // createOrder();
+        FastPay.create(ShopCartDelegate.this)
+                .setPayResultListener(ShopCartDelegate.this)
+
+                .beginPayDialog();
     }
 
     //创建订单，注意，和支付是没有关系的
     private void createOrder() {
         final String orderUrl = "你的生成订单的API";
         final WeakHashMap<String, Object> orderParams = new WeakHashMap<>();
-       //加入你的参数
+        //加入你的参数
         RestClient.builder()
                 .url(orderUrl)
                 .loader(getContext())
@@ -121,12 +126,12 @@ public class ShopCartDelegate extends BottomItemDelegate implements ISuccess, IC
                     @Override
                     public void onSuccess(String response) {
                         //进行具体的支付
-                        CanuteLogger.e("ORDER", response);
+                        CanuteLogger.d("ORDER", response);
                         final int orderId = JSON.parseObject(response).getInteger("result");
-//                        FastPay.create(ShopCartDelegate.this)
-//                                .setPayResultListener(ShopCartDelegate.this)
-//                                .setOrderId(orderId)
-//                                .beginPayDialog();
+                        FastPay.create(ShopCartDelegate.this)
+                                .setPayResultListener(ShopCartDelegate.this)
+                                .setOrderId(orderId)
+                                .beginPayDialog();
                     }
                 })
                 .build()
@@ -196,4 +201,28 @@ public class ShopCartDelegate extends BottomItemDelegate implements ISuccess, IC
         mTvTotalPrice.setText(String.valueOf(price));
     }
 
+    @Override
+    public void onPaySuccess() {
+
+    }
+
+    @Override
+    public void onPaying() {
+
+    }
+
+    @Override
+    public void onPayFail() {
+
+    }
+
+    @Override
+    public void onPayCancel() {
+
+    }
+
+    @Override
+    public void onPayConnectError() {
+
+    }
 }

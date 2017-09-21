@@ -1,10 +1,9 @@
 package me.henry.canutecore.net;
 
 
-
-
 import java.util.WeakHashMap;
 import java.util.concurrent.TimeUnit;
+
 import me.henry.canutecore.app.Canute;
 import me.henry.canutecore.app.ConfigKey;
 import okhttp3.OkHttpClient;

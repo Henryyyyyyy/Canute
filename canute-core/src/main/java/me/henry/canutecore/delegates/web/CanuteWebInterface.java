@@ -4,7 +4,6 @@ import android.webkit.JavascriptInterface;
 
 import com.alibaba.fastjson.JSON;
 
-import me.henry.canutecore.delegates.CanuteDelegate;
 import me.henry.canutecore.delegates.web.event.Event;
 import me.henry.canutecore.delegates.web.event.EventManager;
 import me.henry.canutecore.util.log.CanuteLogger;
