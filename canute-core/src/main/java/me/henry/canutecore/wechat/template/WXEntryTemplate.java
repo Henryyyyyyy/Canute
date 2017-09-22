@@ -22,5 +22,6 @@ public class WXEntryTemplate extends BaseWXEntryActivity{
     protected void onSignInSuccess(String userInfo) {
         CanuteLogger.e("wxtemplate","onSignInSuccess.userinfo="+userInfo);
         CanuteWechat.getInstance().getSignInCallback().onSignInSuccess(userInfo);
+
     }
 }

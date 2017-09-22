@@ -9,6 +9,7 @@ import java.util.HashMap;
  * Created by zj on 2017/8/9.
  * me.henry.canute.app
  * --8.9问：这里就只能初始化configurator了吗，其他东西怎么办
+ *
  */
 
 public class Canute {
