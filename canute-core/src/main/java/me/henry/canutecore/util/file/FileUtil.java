@@ -35,7 +35,8 @@ import me.henry.canutecore.app.Canute;
  * me.henry.canutecore.util.file
  */
 
-public class FileUtil {
+public final class FileUtil {
+
     //格式化的模板
     private static final String TIME_FORMAT = "_yyyyMMdd_HHmmss";
 
