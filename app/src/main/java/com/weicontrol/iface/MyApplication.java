@@ -1,12 +1,17 @@
 package com.weicontrol.iface;
 
 import android.app.Application;
+import android.support.annotation.Nullable;
 
 import com.facebook.stetho.Stetho;
 import com.joanzapata.iconify.fonts.FontAwesomeModule;
 
+import cn.jpush.android.api.JPushInterface;
 import me.henry.canutecore.app.Canute;
 import me.henry.canutecore.delegates.web.event.TestEvent;
+import me.henry.canutecore.util.callback.CallbackManager;
+import me.henry.canutecore.util.callback.CallbackType;
+import me.henry.canutecore.util.callback.IGlobalCallback;
 import me.henry.canuteec.database.DataBaseManager;
 import me.henry.canuteec.icon.FontEcModule;
 
@@ -38,6 +43,28 @@ public class MyApplication extends Application {
                 .configure();
         DataBaseManager.getInstance().init(this);
         initStetho();
+        //开启极光推送
+        JPushInterface.setDebugMode(true);
+        JPushInterface.init(this);
+        CallbackManager.getInstance()
+                .addCallback(CallbackType.TAG_OPEN_PUSH, new IGlobalCallback() {
+                    @Override
+                    public void executeCallback(@Nullable Object args) {
+                        if (JPushInterface.isPushStopped(Canute.getAppContext())) {
+                            //开启极光推送
+                            JPushInterface.setDebugMode(true);
+                            JPushInterface.init(Canute.getAppContext());
+                        }
+                    }
+                })
+                .addCallback(CallbackType.TAG_STOP_PUSH, new IGlobalCallback() {
+                    @Override
+                    public void executeCallback(@Nullable Object args) {
+                        if (!JPushInterface.isPushStopped(Canute.getAppContext())) {
+                            JPushInterface.stopPush(Canute.getAppContext());
+                        }
+                    }
+                });
     }
 
     private void initStetho() {

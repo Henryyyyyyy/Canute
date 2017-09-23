@@ -13,7 +13,7 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 
-import com.yalantis.ucrop.util.FileUtils;
+import com.blankj.utilcode.util.FileUtils;
 
 import java.io.File;
 
@@ -49,7 +49,6 @@ public class CameraHandler implements View.OnClickListener {
             params.flags = WindowManager.LayoutParams.FLAG_DIM_BEHIND;
             params.dimAmount = 0.5f;
             window.setAttributes(params);
-
             window.findViewById(R.id.photodialog_btn_cancel).setOnClickListener(this);
             window.findViewById(R.id.photodialog_btn_take).setOnClickListener(this);
             window.findViewById(R.id.photodialog_btn_native).setOnClickListener(this);
@@ -63,7 +62,7 @@ public class CameraHandler implements View.OnClickListener {
     private void takePhoto() {
         final String currentPhotoName = getPhotoName();
         final Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-        final File tempFile = new File(FileUtil.CAMERA_PHOTO_DIR, currentPhotoName);
+        final File tempFile = new File(FileUtil.CAMERA_PHOTO_DIR, currentPhotoName);//相册目录
 
         //兼容7.0及以上的写法
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
@@ -71,9 +70,8 @@ public class CameraHandler implements View.OnClickListener {
             contentValues.put(MediaStore.Images.Media.DATA, tempFile.getPath());
             final Uri uri = DELEGATE.getContext().getContentResolver().
                     insert(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, contentValues);
-            //需要讲Uri路径转化为实际路径
-            final File realFile =
-                    FileUtils.getFileByPath(FileUtil.getRealFilePath(DELEGATE.getContext(), uri));
+            //需要将Uri路径转化为实际路径
+            final File realFile = FileUtils.getFileByPath(FileUtil.getRealFilePath(DELEGATE.getContext(), uri));
             final Uri realUri = Uri.fromFile(realFile);
             CameraImageBean.getInstance().setPath(realUri);
             intent.putExtra(MediaStore.EXTRA_OUTPUT, uri);
@@ -90,8 +88,7 @@ public class CameraHandler implements View.OnClickListener {
         intent.setType("image/*");
         intent.setAction(Intent.ACTION_GET_CONTENT);
         intent.addCategory(Intent.CATEGORY_OPENABLE);
-        DELEGATE.startActivityForResult
-                (Intent.createChooser(intent, "选择获取图片的方式"), RequestCodes.PICK_PHOTO);
+        DELEGATE.startActivityForResult(Intent.createChooser(intent, "选择获取图片的方式"), RequestCodes.PICK_PHOTO);
     }
 
     @Override

@@ -5,9 +5,8 @@ import android.view.View;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.listener.SimpleClickListener;
 
-
 import me.henry.canutecore.delegates.CanuteDelegate;
-
+import me.henry.canuteec.main.personal.list.ListBean;
 
 
 public class SettingsClickListener extends SimpleClickListener {
@@ -20,18 +19,18 @@ public class SettingsClickListener extends SimpleClickListener {
 
     @Override
     public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
-//        final ListBean bean = (ListBean) baseQuickAdapter.getData().get(position);
-//        int id = bean.getId();
-//        switch (id) {
-//            case 1:
-//                //这是消息推送的开关
-//                break;
-//            case 2:
-//                DELEGATE.getSupportDelegate().start(bean.getDelegate());
-//                break;
-//            default:
-//                break;
-//        }
+        final ListBean bean = (ListBean) baseQuickAdapter.getData().get(position);
+        int id = bean.getId();
+        switch (id) {
+            case 1:
+                //这是消息推送的开关
+                break;
+            case 2:
+                DELEGATE.getSupportDelegate().start(bean.getDelegate());
+                break;
+            default:
+                break;
+        }
     }
 
     @Override

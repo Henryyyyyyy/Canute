@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.os.Handler;
 import android.support.annotation.NonNull;
 
+import com.blankj.utilcode.util.Utils;
 import com.joanzapata.iconify.IconFontDescriptor;
 import com.joanzapata.iconify.Iconify;
 import com.orhanobut.logger.AndroidLogAdapter;
@@ -111,6 +112,7 @@ public class Configurator {
         Logger.addLogAdapter(new AndroidLogAdapter());
         initIcons();
         CANUTE_CONFIGS.put(ConfigKey.CONFIG_READY, true);
+        Utils.init(Canute.getAppContext());
     }
 
 

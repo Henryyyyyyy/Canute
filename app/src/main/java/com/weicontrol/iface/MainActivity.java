@@ -6,6 +6,7 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.ActionBar;
 import android.widget.Toast;
 
+import cn.jpush.android.api.JPushInterface;
 import me.henry.canutecore.activity.ProxyActivity;
 import me.henry.canutecore.app.Canute;
 import me.henry.canutecore.delegates.CanuteDelegate;
@@ -30,7 +31,7 @@ public class MainActivity extends ProxyActivity implements ISignListener,ILaunch
 
     @Override
     public CanuteDelegate setRootDelegate() {
-        return new SignUpDelegate();
+        return new EcBottomDelegate();
     }
 
 
@@ -58,5 +59,17 @@ public class MainActivity extends ProxyActivity implements ISignListener,ILaunch
             default:
                 break;
         }
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        JPushInterface.onPause(this);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        JPushInterface.onResume(this);
     }
 }

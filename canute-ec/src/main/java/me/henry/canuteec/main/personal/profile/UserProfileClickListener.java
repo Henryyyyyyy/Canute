@@ -16,6 +16,9 @@ import me.henry.canutecore.delegates.CanuteDelegate;
 import me.henry.canutecore.net.RestClient;
 import me.henry.canutecore.net.callback.ISuccess;
 import me.henry.canutecore.ui.date.DateDialogUtil;
+import me.henry.canutecore.util.callback.CallbackManager;
+import me.henry.canutecore.util.callback.CallbackType;
+import me.henry.canutecore.util.callback.IGlobalCallback;
 import me.henry.canutecore.util.log.CanuteLogger;
 import me.henry.canuteec.R;
 import me.henry.canuteec.main.personal.list.ListBean;
@@ -37,17 +40,17 @@ public class UserProfileClickListener extends SimpleClickListener {
         final int id = bean.getId();
         switch (id) {
             case 1:
-//                //开始照相机或选择图片
-//                CallbackManager.getInstance()
-//                        .addCallback(CallbackType.ON_CROP, new IGlobalCallback<Uri>() {
-//                            @Override
-//                            public void executeCallback(Uri args) {
-//                                CanuteLogger.d("ON_CROP", args);
-//                                final ImageView avatar = (ImageView) view.findViewById(R.id.img_arrow_avatar);
-//                                Glide.with(DELEGATE)
-//                                        .load(args)
-//                                        .into(avatar);
-//
+                //开始照相机或选择图片
+                CallbackManager.getInstance()
+                        .addCallback(CallbackType.ON_CROP, new IGlobalCallback<Uri>() {
+                            @Override
+                            public void executeCallback(Uri args) {
+                                CanuteLogger.d("ON_CROP", args);
+                                final ImageView avatar = (ImageView) view.findViewById(R.id.img_arrow_avatar);
+                                Glide.with(DELEGATE)
+                                        .load(args)
+                                        .into(avatar);
+
 //                                RestClient.builder()
 //                                        .url(UploadConfig.UPLOAD_IMG)
 //                                        .loader(DELEGATE.getContext())
@@ -77,9 +80,9 @@ public class UserProfileClickListener extends SimpleClickListener {
 //                                        })
 //                                        .build()
 //                                        .upload();
-//                            }
-//                        });
-//                DELEGATE.startCameraWithCheck();
+                            }
+                        });
+                DELEGATE.startCameraWithCheck();
                 break;
             case 2:
                 final CanuteDelegate nameDelegate = bean.getDelegate();
