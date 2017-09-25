@@ -10,7 +10,7 @@ $(function () {
             }
         };
 
-        latte.event(JSON.stringify(json));
+        canute.event(JSON.stringify(json));
 
     });
 

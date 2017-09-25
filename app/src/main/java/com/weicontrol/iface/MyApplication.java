@@ -5,6 +5,7 @@ import android.support.annotation.Nullable;
 
 import com.facebook.stetho.Stetho;
 import com.joanzapata.iconify.fonts.FontAwesomeModule;
+import com.weicontrol.iface.event.ShareEvent;
 
 import cn.jpush.android.api.JPushInterface;
 import me.henry.canutecore.app.Canute;
@@ -40,6 +41,7 @@ public class MyApplication extends Application {
                 .withWeChatAppSecret("wxa3959a378ce8be08")
                 .withJavascriptInterface("canute")
                 .withWebEvent("test", new TestEvent())
+                .withWebEvent("share", new ShareEvent())
                 .configure();
         DataBaseManager.getInstance().init(this);
         initStetho();

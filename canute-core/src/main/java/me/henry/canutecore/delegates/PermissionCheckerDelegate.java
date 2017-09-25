@@ -13,6 +13,7 @@ import com.yalantis.ucrop.UCrop;
 import me.henry.canutecore.ui.camera.CameraImageBean;
 import me.henry.canutecore.ui.camera.CanuteCamera;
 import me.henry.canutecore.ui.camera.RequestCodes;
+import me.henry.canutecore.ui.scanner.ScannerDelegate;
 import me.henry.canutecore.util.callback.CallbackManager;
 import me.henry.canutecore.util.callback.CallbackType;
 import me.henry.canutecore.util.callback.IGlobalCallback;
@@ -44,11 +45,11 @@ public abstract class PermissionCheckerDelegate extends BaseDelegate{
     //扫描二维码(不直接调用)
     @NeedsPermission(Manifest.permission.CAMERA)
     void startScan(BaseDelegate delegate) {
-        //delegate.getSupportDelegate().startForResult(new ScannerDelegate(), RequestCodes.SCAN);
+        delegate.getSupportDelegate().startForResult(new ScannerDelegate(), RequestCodes.SCAN);
     }
 
     public void startScanWithCheck(BaseDelegate delegate) {
-      //  PermissionCheckerDelegatePermissionsDispatcher.startScanWithCheck(this, delegate);
+        PermissionCheckerDelegatePermissionsDispatcher.startScanWithCheck(this, delegate);
     }
 
     @OnPermissionDenied(Manifest.permission.CAMERA)
