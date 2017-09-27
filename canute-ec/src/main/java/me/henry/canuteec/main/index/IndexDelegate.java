@@ -72,7 +72,7 @@ public class IndexDelegate extends BottomItemDelegate implements View.OnFocusCha
                 android.R.color.holo_orange_light,
                 android.R.color.holo_red_light
         );
-        //true的话会变大变小
+        //true的话会变大变小???
         mRefreshLayout.setProgressViewOffset(true, 120, 300);
     }
 
