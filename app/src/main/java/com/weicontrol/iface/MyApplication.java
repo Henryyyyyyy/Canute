@@ -34,7 +34,8 @@ public class MyApplication extends Application {
     public void onCreate() {
         super.onCreate();
         Canute.init(this)
-                .withApiHost("http://116.196.95.67/RestServer/api/")
+               // .withApiHost("http://116.196.95.67/RestServer/api/")
+                .withApiHost("http://192.168.11.105:8080/RestServer/api/")
                 .withIcon(new FontAwesomeModule())
                 .withIcon(new FontEcModule())
                 .withWeChatAppId("wxfa48d65f290ff3b8")//iface
@@ -48,8 +49,7 @@ public class MyApplication extends Application {
         //开启极光推送
         JPushInterface.setDebugMode(true);
         JPushInterface.init(this);
-        CallbackManager.getInstance()
-                .addCallback(CallbackType.TAG_OPEN_PUSH, new IGlobalCallback() {
+        CallbackManager.getInstance().addCallback(CallbackType.TAG_OPEN_PUSH, new IGlobalCallback() {
                     @Override
                     public void executeCallback(@Nullable Object args) {
                         if (JPushInterface.isPushStopped(Canute.getAppContext())) {

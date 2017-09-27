@@ -6,6 +6,8 @@ import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.listener.SimpleClickListener;
 
 import me.henry.canutecore.delegates.CanuteDelegate;
+import me.henry.canutecore.ui.recycler.MultipleFields;
+import me.henry.canutecore.ui.recycler.MultipleItemEntity;
 import me.henry.canuteec.detail.GoodsDetailDelegate;
 
 
@@ -23,12 +25,10 @@ public class IndexItemClickListener extends SimpleClickListener {
 
     @Override
     public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
-final GoodsDetailDelegate delegate=GoodsDetailDelegate.create();
+        final MultipleItemEntity entity = (MultipleItemEntity) baseQuickAdapter.getData().get(position);
+        final int goodsId = entity.getField(MultipleFields.ID);
+        final GoodsDetailDelegate delegate = GoodsDetailDelegate.create(goodsId);
         DELEGATE.getSupportDelegate().start(delegate);
-//        final MultipleItemEntity entity = (MultipleItemEntity) baseQuickAdapter.getData().get(position);
-//        final int goodsId = entity.getField(MultipleFields.ID);
-//        final GoodsDetailDelegate delegate = GoodsDetailDelegate.create(goodsId);
-//        DELEGATE.getSupportDelegate().start(delegate);
     }
 
     @Override
