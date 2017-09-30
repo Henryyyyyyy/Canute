@@ -6,6 +6,7 @@ import android.database.sqlite.SQLiteDatabase;
 /**
  * Created by zj on 2017/8/21.
  * me.henry.canuteec.database
+ * DaoMaster.DevOpenHelper会在升级的时候删除所有表
  */
 
 public class ReleaseOpenHelper extends DaoMaster.OpenHelper {

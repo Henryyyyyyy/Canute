@@ -21,7 +21,7 @@ private static  final  class Holder{
     private DataBaseManager(){
 
     }
-    public DataBaseManager  init(Context context){
+    public DataBaseManager init(Context context){
         initData(context);
         return this;
     }

@@ -85,7 +85,7 @@ dependencies {
     })
     //圆形图片
     compile 'de.hdodenhof:circleimageview:2.1.0'
-//二维码扫描
+        //二维码扫描
     compile 'me.dm7.barcodescanner:zbar:1.9.8'
     //View动画依赖
     compile 'com.nineoldandroids:library:2.4.0'
